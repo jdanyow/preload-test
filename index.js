@@ -46,7 +46,7 @@ addEventListener('fetch', event => {
             event.respondWith(new Response(undefined, {
                 status: 302,
                 headers: {
-                    location: request.headers.get('referrer') || '/',
+                    location: request.headers.get('referer') || '/',
                     'set-cookie': `token=xyz; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=${60 * 60 * 24 * 356}`
                 }
             }));
@@ -55,7 +55,7 @@ addEventListener('fetch', event => {
             event.respondWith(new Response(undefined, {
                 status: 302,
                 headers: {
-                    location: request.headers.get('referrer') || '/',
+                    location: request.headers.get('referer') || '/',
                     'set-cookie': 'token=deleted; Path=/; HttpOnly; Secure; SameSite=None; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
                 }
             }));
